@@ -1,4 +1,4 @@
-import 'package:custom_painter/src/pages/headers_page.dart';
+import 'package:custom_painter/src/pages/pages.dart';
 import 'package:flutter/material.dart';
 
 void main() {
@@ -11,6 +11,6 @@ class MainApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return const MaterialApp(
-        debugShowCheckedModeBanner: false, home: HeadersPage());
+        debugShowCheckedModeBanner: false, home: AnimacionesPage());
   }
 }
