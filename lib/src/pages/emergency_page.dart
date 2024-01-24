@@ -1,7 +1,7 @@
-import 'package:custom_painter/src/widgets/boton_gordo.dart';
-import 'package:custom_painter/src/widgets/headers.dart';
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
+import 'package:custom_painter/src/widgets/boton_gordo.dart';
+import 'package:custom_painter/src/widgets/headers.dart';
 
 class ItemBoton {
   final IconData icon;
@@ -75,12 +75,23 @@ class _Encabezado extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return const Stack(
+    return Stack(
       children: [
-        IconHeader(
+        const IconHeader(
             icon: FontAwesomeIcons.plus,
             titulo: "Asistencia Medica",
             subTitulo: "Haz solicitado"),
+        Positioned(
+            right: 0,
+            top: 50,
+            child: RawMaterialButton(
+              onPressed: () {},
+              shape: const CircleBorder(),
+              child: const FaIcon(
+                FontAwesomeIcons.ellipsisVertical,
+                color: Colors.white,
+              ),
+            ))
       ],
     );
   }
