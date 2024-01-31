@@ -1,5 +1,6 @@
 //import 'package:custom_painter/src/pages/pages.dart';
-import 'package:custom_painter/src/pages_animaciones/pages_animaciones.dart';
+import 'package:custom_painter/src/pages/pages.dart';
+//import 'package:custom_painter/src/pages_animaciones/pages_animaciones.dart';
 import 'package:flutter/material.dart';
 
 void main() {
@@ -14,6 +15,6 @@ class MainApp extends StatelessWidget {
     return MaterialApp(
         debugShowCheckedModeBanner: false,
         theme: ThemeData.dark(useMaterial3: true),
-        home: const Page3());
+        home: const LauncherPage());
   }
 }
