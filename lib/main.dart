@@ -1,10 +1,13 @@
 //import 'package:custom_painter/src/pages/pages.dart';
 import 'package:custom_painter/src/pages/pages.dart';
+import 'package:custom_painter/src/theme/theme.dart';
 //import 'package:custom_painter/src/pages_animaciones/pages_animaciones.dart';
 import 'package:flutter/material.dart';
+import 'package:provider/provider.dart';
 
 void main() {
-  runApp(const MainApp());
+  runApp(ChangeNotifierProvider(
+      create: (_) => ThemeChanger(), child: const MainApp()));
 }
 
 class MainApp extends StatelessWidget {
@@ -12,9 +15,10 @@ class MainApp extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final currentTheme = Provider.of<ThemeChanger>(context).currentTheme;
     return MaterialApp(
         debugShowCheckedModeBanner: false,
-        theme: ThemeData.dark(useMaterial3: true),
+        theme: currentTheme,
         home: const LauncherPage());
   }
 }
