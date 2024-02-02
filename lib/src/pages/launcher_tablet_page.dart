@@ -1,20 +1,39 @@
+import 'package:custom_painter/src/models/layout_model.dart';
+import 'package:custom_painter/src/pages/pages.dart';
 import 'package:custom_painter/src/routes/routes.dart';
 import 'package:custom_painter/src/theme/theme.dart';
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:provider/provider.dart';
 
-class LauncherPage extends StatelessWidget {
-  const LauncherPage({super.key});
+class LauncherTabletPage extends StatelessWidget {
+  const LauncherTabletPage({super.key});
 
   @override
   Widget build(BuildContext context) {
+    final layoutModel = Provider.of<LayoutModel>(context);
+
     return Scaffold(
       appBar: AppBar(
-        title: const Text("Disenos en Flutter - Telefonos 2"),
+        title: const Text("Disenos en Flutter - Tablet 2"),
       ),
-      body: const _ListaOpciones(),
+      //body: const _ListaOpciones(),
       drawer: const _MenuPrincipal(),
+      body: Row(
+        children: [
+          Container(
+            width: 300,
+            height: double.infinity,
+            child: _ListaOpciones(),
+          ),
+          Container(
+            width: 1,
+            height: double.infinity,
+            color: Colors.red,
+          ),
+          Expanded(child: layoutModel.currentPage)
+        ],
+      ),
     );
   }
 }
@@ -35,8 +54,10 @@ class _ListaOpciones extends StatelessWidget {
         title: Text(pageRoutes[i].titulo),
         trailing: const Icon(Icons.chevron_right_outlined),
         onTap: () {
-          Navigator.push(
-              context, MaterialPageRoute(builder: (_) => pageRoutes[i].page));
+          //Navigator.push(
+          //    context, MaterialPageRoute(builder: (_) => pageRoutes[i].page));
+          final layoutModel = Provider.of<LayoutModel>(context, listen: false);
+          layoutModel.currentPage = pageRoutes[i].page;
         },
       ),
     );

@@ -47,22 +47,25 @@ class EmergencyPage extends StatelessWidget {
     return Scaffold(
         body: Stack(
       children: [
-        ListView(
-          physics: const BouncingScrollPhysics(),
-          children: [
-            const SizedBox(
-              height: 300,
-            ),
-            ...items
-                .map((e) => BotonGordo(
-                      texto: e.texto,
-                      onPress: () {},
-                      color1: e.color1,
-                      color2: e.color2,
-                      icon: e.icon,
-                    ))
-                .toList()
-          ],
+        Container(
+          margin: EdgeInsets.only(top: 20),
+          child: ListView(
+            physics: const BouncingScrollPhysics(),
+            children: [
+              const SizedBox(
+                height: 300,
+              ),
+              ...items
+                  .map((e) => BotonGordo(
+                        texto: e.texto,
+                        onPress: () {},
+                        color1: e.color1,
+                        color2: e.color2,
+                        icon: e.icon,
+                      ))
+                  .toList()
+            ],
+          ),
         ),
         const _Encabezado()
       ],
