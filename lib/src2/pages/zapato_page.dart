@@ -6,19 +6,22 @@ class ZapatoPage extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
+    return const Scaffold(
       //    body: CustomAppBar(
       //  texto: "For You",
       //)
       //body: ZapatosSizePreview(),
       body: Column(
         children: [
-          const CustomAppBar(texto: "For You"),
+          CustomAppBar(texto: "For You"),
           Expanded(
               child: SingleChildScrollView(
                   child: Column(
             children: [
-              ZapatosSizePreview(),
+              Hero(
+                tag: "zapato-1",
+                child: ZapatosSizePreview(),
+              ),
               ZapatoDescripcion(
                 titulo: 'Nike Air Max 720',
                 descripcion:
